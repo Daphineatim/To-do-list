@@ -1,3 +1,33 @@
-.hello {
-  color: red;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  font-weight: normal;
+  line-height: 18px;
+}
+
+ul {
+  list-style: none;
+}
+
+.icon {
+  background-color: transparent;
+  border: 0;
+  color: rgb(29, 29, 29);
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.m-width {
+  width: 90%;
+}
+
+.hide {
+  display: none;
 }
