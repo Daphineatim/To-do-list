@@ -1,17 +1,17 @@
 {
   "name": "to-do-list",
   "version": "1.0.0",
-  "description": "This is the Microverse Project in Module 2 (JavaScript) which introduces us to finer details of JavaScript and going much deeper.",
+  "description": "This is a to do list project",
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "build": "webpack",
+    "start": "webpack serve --open"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Daphineatim/To-do-list.git"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
@@ -20,10 +20,13 @@
   "homepage": "https://github.com/Daphineatim/To-do-list#readme",
   "devDependencies": {
     "css-loader": "^6.7.1",
+    "express": "^4.18.1",
     "html-webpack-plugin": "^5.5.0",
     "style-loader": "^3.3.1",
     "webpack": "^5.74.0",
-    "webpack-cli": "^4.10.0"
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-middleware": "^5.3.3",
+    "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {
     "lodash": "^4.17.21"
