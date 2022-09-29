@@ -1,38 +1,80 @@
 import './style.css';
+import {
+  Task,
+  addTask,
+  removeTask,
+  checkLocalStorage,
+  editTask,
+} from './module/utilityFunctions.js';
+import * as Elements from './module/constElements.js';
 
-const taskList = [
-  {
-    index: 0,
-    description: 'wash the dish',
-    completed: false,
-  },
-  {
-    index: 1,
-    description: 'complete to do list project',
-    completed: false,
-  },
-];
+/* eslint-disable */
+/* eslint-enable */
 
-const displayContent = () => {
-  const tasks = document.querySelector('#taskList');
-  taskList.forEach((element) => {
-    tasks.innerHTML += `
-          <div class="border-bottom  m-0 px-3 py-0 d-flex align-items-center justify-content-between" data-id=${element.id}>
-            <div class="form-check mb-0 d-flex align-items-center justify-content-start">
-              <input class="form-check-input border" type="checkbox" value="" id="flexCheckDefault">
-              <label class="form-check-label p-3 m-0" for="flexCheckDefault">
-                <span class="h5 m-0 p-0">${element.description}</span>
-              </label>
-            </div>
-            <button id="three-dots" class="h5 btn m-0 icon">
-              <i class="fa-solid fa-ellipsis-vertical"></i>
-            </button>
-            <button id="trash" class="h5 btn m-0 icon hide">
-              <i class="fa-solid fa-trash-can"></i>
-            </button>
-          </div>
-        `;
+Elements.submitInput.addEventListener('click', addTask);
+
+Elements.taskInput.addEventListener('keypress', (event) => {
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    addTask();
+  }
+});
+
+Elements.refreshTask.addEventListener('click', (e) => {
+  e.preventDefault();
+  Task.TaskObject = [];
+  localStorage.setItem('TASKS_LIST', JSON.stringify(Task.TaskObject));
+  checkLocalStorage();
+});
+
+Elements.taskList.addEventListener('click', (e) => {
+  e.stopPropagation();
+
+  [...Elements.taskList.children].forEach((item, index) => {
+    if (item.classList.contains('bg-yellow')) {
+      item.children[1].classList.remove('hide');
+      item.children[2].classList.add('hide');
+      item.classList.remove('bg-yellow');
+    }
+    if (index === parseInt(e.target.getAttribute('data-id'), 10)) {
+      item.children[1].classList.add('hide');
+      item.children[2].classList.remove('hide');
+      item.classList.add('bg-yellow');
+      item.children[2].addEventListener('click', (e) => {
+        e.preventDefault();
+        if (item.children[2].children[0] === e.target) {
+          removeTask(e.target.parentElement.parentElement);
+        } else {
+          removeTask(e.target.parentElement);
+        }
+      });
+    }
+
+    const descriptionItem = item.children[0].children[1].children[0];
+    const targetItem = e.target.parentElement.parentElement.parentElement;
+
+    if (
+      !targetItem.classList.contains('bg-yellow')
+      && descriptionItem === e.target
+    ) {
+      item.children[1].classList.add('hide');
+      item.children[2].classList.remove('hide');
+      item.classList.add('bg-yellow');
+    }
   });
-};
 
-displayContent();
+  editTask(e.target);
+});
+
+document.addEventListener('click', (e) => {
+  [...Elements.taskList.children].forEach((item) => {
+    const isClickInsideTaskList = Elements.taskList.contains(e.target);
+    if (!isClickInsideTaskList) {
+      item.children[1].classList.remove('hide');
+      item.children[2].classList.add('hide');
+      item.classList.remove('bg-yellow');
+    }
+  });
+});
+
+document.addEventListener('DOMContentLoaded', checkLocalStorage);
