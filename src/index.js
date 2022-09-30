@@ -79,8 +79,8 @@ document.addEventListener('click', (e) => {
   [...Elements.taskList.children].forEach((item) => {
     const isClickInsideTaskList = Elements.taskList.contains(e.target);
     if (!isClickInsideTaskList) {
-      item.children[1].classList.remove('hide');
-      item.children[2].classList.add('hide');
+      item.children[0].classList.remove('hide');
+      item.children[1].classList.add('hide');
       item.classList.remove('bg-yellow');
     }
   });
