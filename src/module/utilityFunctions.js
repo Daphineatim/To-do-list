@@ -52,15 +52,15 @@ const editTask = (target) => {
   const taskItem = target.parentElement.parentElement.parentElement;
   // target.focus();
   target.onblur = () => {
-      if (parseInt(taskItem.getAttribute('data-id'), 10) !== null) {
-    Task.TaskObject.forEach((obj) => {
-      if (obj.id === parseInt(taskItem.getAttribute('data-id'), 10)) {
-        obj.description = target.innerText;
-      }
+    if (parseInt(taskItem.getAttribute('data-id'), 10) !== null) {
+      Task.TaskObject.forEach((obj) => {
+        if (obj.id === parseInt(taskItem.getAttribute('data-id'), 10)) {
+          obj.description = target.innerText;
+        }
 
-      localStorage.setItem('TASKS_LIST', JSON.stringify(Task.TaskObject));
-    });
-  }
+        localStorage.setItem('TASKS_LIST', JSON.stringify(Task.TaskObject));
+      });
+    }
   };
 };
 

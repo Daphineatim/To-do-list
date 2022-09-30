@@ -22,7 +22,7 @@ Elements.taskInput.addEventListener('keypress', (event) => {
   }
 });
 
-//clear all task
+// clear all task
 Elements.refreshTask.addEventListener('click', (e) => {
   e.preventDefault();
   Task.TaskObject = [];
@@ -30,12 +30,12 @@ Elements.refreshTask.addEventListener('click', (e) => {
   checkLocalStorage();
 });
 
-//tasklist functionalities
+// tasklist functionalities
 Elements.taskList.addEventListener('click', (e) => {
   e.stopPropagation();
 
   [...Elements.taskList.children].forEach((item, index) => {
-    //all tasks to default ui
+    // all tasks to default ui
     if (item.classList.contains('bg-yellow')) {
       item.children[1].classList.remove('hide');
       item.children[2].classList.add('hide');
