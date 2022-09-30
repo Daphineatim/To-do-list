@@ -66,8 +66,8 @@ Elements.taskList.addEventListener('click', (e) => {
       item.children[2].classList.remove('hide');
       item.classList.add('bg-yellow');
     }
-  
- // update the check checkbox to local storage
+
+  // update the check checkbox to local storage
     completed(item);
   });
 
@@ -85,7 +85,7 @@ document.addEventListener('click', (e) => {
     }
   });
 
-    // clear all checked checkboxes
+  // clear all checked checkboxes
   clearCompletedTasks(e.target);
 });
 
