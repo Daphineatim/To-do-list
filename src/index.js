@@ -67,7 +67,7 @@ Elements.taskList.addEventListener('click', (e) => {
       item.classList.add('bg-yellow');
     }
 
-  // update the check checkbox to local storage
+    // update the check checkbox to local storage
     completed(item);
   });
 
