@@ -37,7 +37,7 @@ const addTask = () => {
 
 const reorderTaskObjectId = (obj) => {
   obj.forEach((item, index) => {
-    item.id = index;
+    item.id = index + 1;
   });
 };
 
@@ -50,15 +50,18 @@ const removeTask = (element) => {
 
 const editTask = (target) => {
   const taskItem = target.parentElement.parentElement.parentElement;
-  const editDescription = target.innerText;
-  if (parseInt(taskItem.getAttribute('data-id'), 10) !== null) {
+  // target.focus();
+  target.onblur = () => {
+      if (parseInt(taskItem.getAttribute('data-id'), 10) !== null) {
     Task.TaskObject.forEach((obj) => {
       if (obj.id === parseInt(taskItem.getAttribute('data-id'), 10)) {
-        obj.description = editDescription;
+        obj.description = target.innerText;
       }
+
       localStorage.setItem('TASKS_LIST', JSON.stringify(Task.TaskObject));
     });
   }
+  };
 };
 
 export {

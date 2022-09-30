@@ -9,7 +9,7 @@ class Task {
 
   add(task) {
     this.TaskObject.push({
-      id: this.TaskObject.length,
+      id: this.TaskObject.length + 1,
       description: task.value,
       completed: false,
     });

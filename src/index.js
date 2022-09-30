@@ -11,8 +11,10 @@ import * as Elements from './module/constElements.js';
 /* eslint-disable */
 /* eslint-enable */
 
+// add task from submit
 Elements.submitInput.addEventListener('click', addTask);
 
+// add task by pressing Enter key
 Elements.taskInput.addEventListener('keypress', (event) => {
   if (event.keyCode === 13) {
     event.preventDefault();
@@ -20,6 +22,7 @@ Elements.taskInput.addEventListener('keypress', (event) => {
   }
 });
 
+//clear all task
 Elements.refreshTask.addEventListener('click', (e) => {
   e.preventDefault();
   Task.TaskObject = [];
@@ -27,15 +30,18 @@ Elements.refreshTask.addEventListener('click', (e) => {
   checkLocalStorage();
 });
 
+//tasklist functionalities
 Elements.taskList.addEventListener('click', (e) => {
   e.stopPropagation();
 
   [...Elements.taskList.children].forEach((item, index) => {
+    //all tasks to default ui
     if (item.classList.contains('bg-yellow')) {
       item.children[1].classList.remove('hide');
       item.children[2].classList.add('hide');
       item.classList.remove('bg-yellow');
     }
+    // selected task applied styles
     if (index === parseInt(e.target.getAttribute('data-id'), 10)) {
       item.children[1].classList.add('hide');
       item.children[2].classList.remove('hide');
@@ -50,6 +56,7 @@ Elements.taskList.addEventListener('click', (e) => {
       });
     }
 
+    // click on description applies styles on the task ui
     const descriptionItem = item.children[0].children[1].children[0];
     const targetItem = e.target.parentElement.parentElement.parentElement;
 
