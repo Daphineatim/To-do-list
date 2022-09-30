@@ -8,7 +8,7 @@ const displayContent = () => {
       <div class="taskDynamic border-bottom  m-0 px-3 py-0 d-flex align-items-center justify-content-between" data-id=${obj.id}>
               <div class="form-check mb-0 d-flex align-items-center justify-content-start">
                 <input class="form-check-input border" type="checkbox" value="" id="flexCheckDefault checked">                
-                <label class="form-check-label p-3 m-0 d-flex align-items-center justify-content-start" for="flexCheckDefault">
+                <label class="strikethrough form-check-label p-3 m-0 d-flex align-items-center justify-content-start" for="flexCheckDefault">
                   <span class="description h5 m-0 p-0" contenteditable=true>${obj.description}</span>
                 </label>
               </div>
@@ -37,7 +37,7 @@ const addTask = () => {
 
 const reorderTaskObjectId = (obj) => {
   obj.forEach((item, index) => {
-    item.id = index + 1;
+    item.id = index;
   });
 };
 
@@ -48,26 +48,24 @@ const removeTask = (element) => {
   checkLocalStorage();
 };
 
-const editTask = (target) => {
-  const taskItem = target.parentElement.parentElement.parentElement;
-  // target.focus();
-  target.onblur = () => {
-    if (parseInt(taskItem.getAttribute('data-id'), 10) !== null) {
-      Task.TaskObject.forEach((obj) => {
-        if (obj.id === parseInt(taskItem.getAttribute('data-id'), 10)) {
-          obj.description = target.innerText;
-        }
-
-        localStorage.setItem('TASKS_LIST', JSON.stringify(Task.TaskObject));
-      });
-    }
-  };
+const editTask = (item) => {
+  const taskItem = item.parentElement.parentElement;
+  const editDescription = item.innerText;
+  if (parseInt(taskItem.getAttribute('data-id'), 10) >= 0) {
+    Task.TaskObject.forEach((obj) => {
+      if (obj.id === parseInt(taskItem.getAttribute('data-id'), 10)) {
+        obj.description = editDescription;
+      }
+      localStorage.setItem('TASKS_LIST', JSON.stringify(Task.TaskObject));
+    });
+  }
 };
 
 export {
   Task,
   displayContent,
   addTask,
+  reorderTaskObjectId,
   removeTask,
   checkLocalStorage,
   editTask,

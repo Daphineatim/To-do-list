@@ -7,9 +7,7 @@ import {
   editTask,
 } from './module/utilityFunctions.js';
 import * as Elements from './module/constElements.js';
-
-/* eslint-disable */
-/* eslint-enable */
+import { completed, clearCompletedTasks } from './module/checkbox.js';
 
 // add task from submit
 Elements.submitInput.addEventListener('click', addTask);
@@ -68,9 +66,13 @@ Elements.taskList.addEventListener('click', (e) => {
       item.children[2].classList.remove('hide');
       item.classList.add('bg-yellow');
     }
+  
+ // update the check checkbox to local storage
+    completed(item);
   });
 
-  editTask(e.target);
+  // edit the task
+  e.target.addEventListener('keypress focusout', editTask(e.target));
 });
 
 document.addEventListener('click', (e) => {
@@ -82,6 +84,9 @@ document.addEventListener('click', (e) => {
       item.classList.remove('bg-yellow');
     }
   });
+
+    // clear all checked checkboxes
+  clearCompletedTasks(e.target);
 });
 
 document.addEventListener('DOMContentLoaded', checkLocalStorage);
