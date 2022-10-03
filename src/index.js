@@ -72,6 +72,7 @@ Elements.taskList.addEventListener('click', (e) => {
   });
 
   // edit the task
+  // editTask(e.target); 
   e.target.addEventListener('keypress focusout', editTask(e.target));
 });
 
