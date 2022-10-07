@@ -20,7 +20,6 @@ describe('Test add and displayContent method, and local storage', () => {
   });
 
   test('test for local storage', () => {
-    JSON.parse(localStorage.getItem('TASKS_LIST'));
     expect(localStorage).toHaveLength(1);
   });
 });
@@ -49,7 +48,6 @@ describe('Test removeTask method, and local storage', () => {
     expect(Tasks.TaskObject).toHaveLength(1);
   });
   test('test for local storage', () => {
-    JSON.parse(localStorage.getItem('TASKS_LIST'));
     expect(localStorage).toHaveLength(1);
   });
 });
