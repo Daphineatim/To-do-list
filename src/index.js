@@ -1,9 +1,9 @@
 import './style.css';
 import {
-  Task,
+  Tasks,
   addTask,
   removeTask,
-  displayContent,
+
 } from './module/utilityFunctions.js';
 
 import {
@@ -36,9 +36,7 @@ refreshTask.addEventListener('click', (e) => {
 
 // tasklist functionalities
 taskList.addEventListener('click', (e) => {
-  // e.stopPropagation();
 
-  [...taskList.children].forEach((item, index) => {
     // all tasks to default ui
     if (item.classList.contains('bg-yellow')) {
       item.children[1].classList.remove('hide');
@@ -109,7 +107,7 @@ taskList.addEventListener('click', (e) => {
 });
 
 document.addEventListener('click', (e) => {
-  [...Elements.taskList.children].forEach((item) => {
+  [taskList.children].forEach((item) => {
     const isClickInsideTaskList = Elements.taskList.contains(e.target);
     if (!isClickInsideTaskList) {
       item.children[0].classList.remove('hide');
