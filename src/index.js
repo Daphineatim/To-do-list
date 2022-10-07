@@ -99,11 +99,12 @@ taskList.addEventListener('click', (e) => {
         description.parentElement.parentElement.getAttribute('data-id'),
         10,
       )
-    ) {
+    )
+     {
       description.addEventListener('input', (e) => {
         editTask(e.target.value, index);
       });
-    }
+     }
   });
 });
 
