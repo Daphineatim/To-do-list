@@ -19,4 +19,4 @@ const editTask = (value, index) => {
   localStorage.setItem('TASKS_LIST', JSON.stringify(Tasks.TaskObject));
 };
 
-export { updateCompleted, clearCompletedTasks, editTask };
+export { updateCompleted, clearCompletedTasks, editTask, completed };
