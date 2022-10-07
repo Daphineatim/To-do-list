@@ -9,20 +9,17 @@ class Task {
 
   add(task) {
     this.TaskObject.push({
-      id: this.TaskObject.length + 1,
+      id: this.TaskObject.length,
       description: task.value,
       completed: false,
     });
     localStorage.setItem('TASKS_LIST', JSON.stringify(this.TaskObject));
   }
 
-  remove(element) {
-    if (element.classList.contains('taskDynamic')) {
-      element.remove();
-      this.TaskObject.splice(element.getAttribute('data-id'), 1);
-    }
+  remove(index) {
+    this.TaskObject.splice(index, 1);
     localStorage.setItem('TASKS_LIST', JSON.stringify(this.TaskObject));
   }
 }
 
-export default new Task();
+export default Task;
