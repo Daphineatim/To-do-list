@@ -58,7 +58,7 @@ taskList.addEventListener('click', (e) => {
 
     if (targetItem) {
       if (
-       !targetItem.classList.contains('bg-yellow')
+      !targetItem.classList.contains('bg-yellow')
       && descriptionItem === e.target 
       ) {
       item.children[1].classList.add('hide');
@@ -108,8 +108,8 @@ taskList.addEventListener('click', (e) => {
 });
 
 document.addEventListener('click', (e) => {
-  [...Elements.taskList.children].forEach((item) => {
-    const isClickInsideTaskList = Elements.taskList.contains(e.target);
+  [...taskList.children].forEach((item) => {
+    const isClickInsideTaskList = taskList.contains(e.target);
     if (!isClickInsideTaskList) {
       item.children[0].classList.remove('hide');
       item.children[1].classList.add('hide');
