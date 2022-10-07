@@ -57,7 +57,7 @@ taskList.addEventListener('click', (e) => {
     const targetItem = e.target.parentElement.parentElement.parentElement;
 
     if (targetItem) {
-       if (
+      if (
         !targetItem.classList.contains('bg-yellow')
       && descriptionItem === e.target
       ) {
