@@ -3,11 +3,8 @@ import {
   Task,
   addTask,
   removeTask,
-  checkLocalStorage,
-  editTask,
 } from './module/utilityFunctions.js';
-import * as Elements from './module/constElements.js';
-import { completed, clearCompletedTasks } from './module/checkbox.js';
+import { completed, clearCompletedTasks, editTask } from './module/checkbox.js';
 
 // add task from submit
 Elements.submitInput.addEventListener('click', addTask);
