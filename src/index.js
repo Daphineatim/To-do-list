@@ -1,6 +1,6 @@
 import './style.css';
 import {
-  Task,
+  Tasks,
   addTask,
   removeTask,
   displayContent,
@@ -11,7 +11,6 @@ import {
   taskInput,
   submitInput,
   taskList,
-  clear,
 } from './module/constElements.js';
 import { completed, clearCompletedTasks, editTask } from './module/checkbox.js';
 
@@ -61,12 +60,12 @@ taskList.addEventListener('click', (e) => {
       !targetItem.classList.contains('bg-yellow')
       && descriptionItem === e.target 
       ) {
-      item.children[1].classList.add('hide');
-      item.children[2].classList.remove('hide');
-      item.classList.add('bg-yellow');
-      descriptionItem.classList.add('bg-yellow');
+        item.children[1].classList.add('hide');
+        item.children[2].classList.remove('hide');
+        item.classList.add('bg-yellow');
+        descriptionItem.classList.add('bg-yellow');
+      }
     }
-  }
 
     // update the check checkbox to local storage
     const checkStatus = item.firstElementChild.firstElementChild.checked;
@@ -124,4 +123,4 @@ document.addEventListener('click', (e) => {
   });
 });
 
-document.addEventListener('DOMContentLoaded', checkLocalStorage);
+document.addEventListener('DOMContentLoaded', displayContent);
