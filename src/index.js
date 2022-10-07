@@ -11,6 +11,7 @@ import {
   taskInput,
   submitInput,
   taskList,
+  clear,
 } from './module/constElements.js';
 import { completed, clearCompletedTasks, editTask } from './module/checkbox.js';
 
@@ -28,7 +29,7 @@ taskInput.addEventListener('keypress', (event) => {
 // clear all task
 refreshTask.addEventListener('click', (e) => {
   e.preventDefault();
-  Task.TaskObject = [];
+  Tasks.TaskObject = [];
   localStorage.setItem('TASKS_LIST', JSON.stringify(Task.TaskObject));
   displayContent();
 });
@@ -56,9 +57,9 @@ taskList.addEventListener('click', (e) => {
     const targetItem = e.target.parentElement.parentElement.parentElement;
 
     if (targetItem) {
-      if (
+        if (
       !targetItem.classList.contains('bg-yellow')
-      && descriptionItem === e.target 
+      && descriptionItem === e.target
       ) {
         item.children[1].classList.add('hide');
         item.children[2].classList.remove('hide');
