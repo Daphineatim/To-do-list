@@ -13,7 +13,7 @@ import {
   taskList,
   clear,
 } from './module/constElements.js';
-import { clearCompletedTasks, editTask } from './module/checkbox.js';
+import { completed, clearCompletedTasks, editTask } from './module/checkbox.js';
 
 // add task from submit
 submitInput.addEventListener('click', addTask);
