@@ -1,4 +1,6 @@
-
+/**
+ * @jest-environment jsdom
+ */
 
 import Task from './Task.js';
 import { displayContent } from './utilityFunctions.js';
