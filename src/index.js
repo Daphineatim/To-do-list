@@ -1,16 +1,17 @@
 import './style.css';
 import {
-  Task,
+  Tasks,
   addTask,
   removeTask,
+  displayContent;
 } from './module/utilityFunctions.js';
 import { completed, clearCompletedTasks, editTask } from './module/checkbox.js';
 
 // add task from submit
-Elements.submitInput.addEventListener('click', addTask);
+submitInput.addEventListener('click', addTask);
 
 // add task by pressing Enter key
-Elements.taskInput.addEventListener('keypress', (event) => {
+taskInput.addEventListener('keypress', (event) => {
   if (event.keyCode === 13) {
     event.preventDefault();
     addTask();
@@ -18,7 +19,7 @@ Elements.taskInput.addEventListener('keypress', (event) => {
 });
 
 // clear all task
-Elements.refreshTask.addEventListener('click', (e) => {
+refreshTask.addEventListener('click', (e) => {
   e.preventDefault();
   Task.TaskObject = [];
   localStorage.setItem('TASKS_LIST', JSON.stringify(Task.TaskObject));
@@ -26,10 +27,10 @@ Elements.refreshTask.addEventListener('click', (e) => {
 });
 
 // tasklist functionalities
-Elements.taskList.addEventListener('click', (e) => {
+taskList.addEventListener('click', (e) => {
   e.stopPropagation();
 
-  [...Elements.taskList.children].forEach((item, index) => {
+  [...taskList.children].forEach((item, index) => {
     // all tasks to default ui
     if (item.classList.contains('bg-yellow')) {
       item.children[1].classList.remove('hide');
@@ -74,7 +75,7 @@ Elements.taskList.addEventListener('click', (e) => {
 });
 
 document.addEventListener('click', (e) => {
-  [...Elements.taskList.children].forEach((item) => {
+  [...taskList.children].forEach((item) => {
     const isClickInsideTaskList = Elements.taskList.contains(e.target);
     if (!isClickInsideTaskList) {
       item.children[0].classList.remove('hide');
