@@ -30,7 +30,7 @@ taskInput.addEventListener('keypress', (event) => {
 refreshTask.addEventListener('click', (e) => {
   e.preventDefault();
   Tasks.TaskObject = [];
-  localStorage.setItem('TASKS_LIST', JSON.stringify(Task.TaskObject));
+  localStorage.setItem('TASKS_LIST', JSON.stringify(Tasks.TaskObject));
   displayContent();
 });
 
@@ -57,8 +57,8 @@ taskList.addEventListener('click', (e) => {
     const targetItem = e.target.parentElement.parentElement.parentElement;
 
     if (targetItem) {
-        if (
-      !targetItem.classList.contains('bg-yellow')
+       if (
+        !targetItem.classList.contains('bg-yellow')
       && descriptionItem === e.target
       ) {
         item.children[1].classList.add('hide');
