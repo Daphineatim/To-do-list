@@ -13,7 +13,7 @@ import {
   taskList,
   clear,
 } from './module/constElements.js';
-import { completed, clearCompletedTasks, editTask } from './module/checkbox.js';
+import { updateCompleted, clearCompletedTasks, editTask } from './module/checkbox.js';
 
 // add task from submit
 submitInput.addEventListener('click', addTask);
@@ -74,7 +74,7 @@ taskList.addEventListener('click', (e) => {
       index
       === parseInt(e.target.parentElement.parentElement.getAttribute('data-id'), 10)
     ) {
-      completed(index, checkStatus);
+      updateCompleted(index, checkStatus);
     }
   });
 
