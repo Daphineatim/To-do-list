@@ -3,8 +3,6 @@ import {
   Task,
   addTask,
   removeTask,
-  displayContent;
-  checkLocalStorage,
 } from './module/utilityFunctions.js';
 import { completed, clearCompletedTasks, editTask } from './module/checkbox.js';
 
@@ -71,6 +69,7 @@ Elements.taskList.addEventListener('click', (e) => {
   });
 
   // edit the task
+  // editTask(e.target); 
   e.target.addEventListener('keypress focusout', editTask(e.target));
 });
 
