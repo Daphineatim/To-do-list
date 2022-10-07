@@ -48,6 +48,8 @@ describe('Test removeTask method, and local storage', () => {
     Tasks.remove(1);
     expect(Tasks.TaskObject).toHaveLength(1);
   });
-  
+  test('test for local storage', () => {
+    JSON.parse(localStorage.getItem('TASKS_LIST'));
+    expect(localStorage).toHaveLength(1);
   });
 });
