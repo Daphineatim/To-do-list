@@ -3,7 +3,7 @@ import {
   Tasks,
   addTask,
   removeTask,
-
+  displayContent,
 } from './module/utilityFunctions.js';
 
 import {
@@ -57,7 +57,7 @@ taskList.addEventListener('click', (e) => {
     if (targetItem) {
       if (
        !targetItem.classList.contains('bg-yellow')
-      && descriptionItem === e.target 
+      && descriptionItem === e.target
       ) {
       item.children[1].classList.add('hide');
       item.children[2].classList.remove('hide');
@@ -97,14 +97,12 @@ taskList.addEventListener('click', (e) => {
         description.parentElement.parentElement.getAttribute('data-id'),
         10,
       )
-    )
-     {
+    ) {
       description.addEventListener('input', (e) => {
         editTask(e.target.value, index);
       });
      }
   });
-});
 
 document.addEventListener('click', (e) => {
   [taskList.children].forEach((item) => {
