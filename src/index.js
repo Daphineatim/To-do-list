@@ -35,7 +35,7 @@ refreshTask.addEventListener('click', (e) => {
 });
 
 // tasklist functionalities
-Elements.taskList.addEventListener('click', (e) => {
+taskList.addEventListener('click', (e) => {
   // e.stopPropagation();
 
   [...taskList.children].forEach((item, index) => {
