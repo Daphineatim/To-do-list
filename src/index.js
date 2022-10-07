@@ -1,6 +1,6 @@
 import './style.css';
 import {
-  Tasks,
+  Task,
   addTask,
   removeTask,
   displayContent,
@@ -36,7 +36,9 @@ refreshTask.addEventListener('click', (e) => {
 
 // tasklist functionalities
 taskList.addEventListener('click', (e) => {
+  // e.stopPropagation();
 
+  [...taskList.children].forEach((item, index) => {
     // all tasks to default ui
     if (item.classList.contains('bg-yellow')) {
       item.children[1].classList.remove('hide');
@@ -57,7 +59,7 @@ taskList.addEventListener('click', (e) => {
     if (targetItem) {
       if (
        !targetItem.classList.contains('bg-yellow')
-      && descriptionItem === e.target
+      && descriptionItem === e.target 
       ) {
       item.children[1].classList.add('hide');
       item.children[2].classList.remove('hide');
@@ -101,11 +103,12 @@ taskList.addEventListener('click', (e) => {
       description.addEventListener('input', (e) => {
         editTask(e.target.value, index);
       });
-     }
+    }
   });
+});
 
 document.addEventListener('click', (e) => {
-  [taskList.children].forEach((item) => {
+  [...Elements.taskList.children].forEach((item) => {
     const isClickInsideTaskList = Elements.taskList.contains(e.target);
     if (!isClickInsideTaskList) {
       item.children[0].classList.remove('hide');
