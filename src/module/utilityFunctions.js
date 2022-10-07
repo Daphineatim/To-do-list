@@ -14,7 +14,7 @@ const displayContent = () => {
               <button class="three-dots h5 btn m-0 icon">
                 <i class="fa-solid fa-ellipsis-vertical"></i>
               </button>
-              <i class="trash fa-solid fa-trash-can hide"></i>              
+              <i class="trash fa-solid fa-trash-can hide"></i>
             </div>
       `;
   });
