@@ -5,7 +5,8 @@ const taskList = document.querySelector('#taskList');
 
 const threeDots = document.querySelector('.three-dots');
 const trash = document.querySelector('.trash');
+const clear = document.querySelector('#clear');
 
 export {
-  refreshTask, taskInput, submitInput, taskList, threeDots, trash,
+  refreshTask, taskInput, submitInput, taskList, threeDots, trash, clear,
 };
